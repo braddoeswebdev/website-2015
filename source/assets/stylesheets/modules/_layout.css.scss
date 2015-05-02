@@ -1,0 +1,49 @@
+// -----------------------------------------------------------------------------
+// The layout module is just a module like any other. According to 
+// the layout rules from "Scalable and Modular Architecture for CSS" 
+// "http://smacss.com/book/type-layout" this module holds only the major 
+// components of the page. The minor components such as form, header or 
+// navigation are located in the specialized modules.
+// 
+// In general, the classes of this module only use the Foundation grid mixins 
+// like e.g. grid-row() and grid-column() to create rows and columns 
+// with semantic markup.
+// -----------------------------------------------------------------------------
+
+#layout {
+    @include grid-row();
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #363636;
+    border: thin solid #222;
+
+    #container {
+        @include grid-column(9);
+
+        #header {
+            @include grid-row();
+        }
+
+        #primary {
+            @include grid-row();
+
+            #nav {
+                @include grid-column(3);
+            }
+
+            #content {
+                @include grid-column(9)
+            }
+        }
+    }
+}
+
+#right-bar {
+    @include grid-column(3);
+}
+
+#footer {
+    width: 100%;
+    margin-top: 4rem;
+    text-align: center;
+}

@@ -1,0 +1,22 @@
+!!!
+%html.no-js{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %title= @title ? "Brad Thompson - #{@title}" : "Brad Thompson"
+    = stylesheet_link_tag "app"
+    = javascript_include_tag "before"
+  %body{class: page_classes}
+    #layout
+      #container
+        #header
+          = partial "header"
+        #primary
+          #nav
+            = partial "nav"
+          #content
+            = yield
+      #right-bar
+        .bigphoto
+    = partial "footer" 
+    = javascript_include_tag  "all"
